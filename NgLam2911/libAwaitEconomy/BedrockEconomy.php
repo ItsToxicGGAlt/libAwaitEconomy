@@ -7,11 +7,11 @@ use cooldogedev\BedrockEconomy\api\BedrockEconomyAPI;
 use cooldogedev\BedrockEconomy\libs\cooldogedev\libSQL\context\ClosureContext;
 use Generator;
 use pocketmine\player\Player;
-use SOFe\AwaitGenerator\Await;
+use pocketmine\plugin\Plugin;
 
 class BedrockEconomy implements Economy{
 
-	public function init() : void{
+	public function init(Plugin $plugin) : void{
 		//NOTHING
 	}
 

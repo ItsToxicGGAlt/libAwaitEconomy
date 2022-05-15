@@ -8,6 +8,7 @@ use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\Server;
 use RuntimeException;
+use SOFe\Capital\AccountRef;
 use SOFe\Capital\Capital;
 use SOFe\Capital\CapitalException;
 use SOFe\Capital\LabelSet;
@@ -32,13 +33,20 @@ class CapitalEconomy implements Economy{
 	}
 
 	public function getMoney(Player $player) : Generator{
-		//UNKNOWN
-		return yield 0;
+		try{
+			return yield from $this->capital->getBalance(new AccountRef($player->getUniqueId()));
+		}catch(CapitalException){
+			return yield null;
+		}
 	}
 
 	public function setMoney(Player $player, float $value) : Generator{
-		//UNKNOW
-		return yield false;
+		try{
+			//UNKNOWN
+			return yield true;
+		}catch(CapitalException){
+			return yield false;
+		}
 	}
 
 	public function addMoney(Player $player, float $value) : Generator{
@@ -52,7 +60,12 @@ class CapitalEconomy implements Economy{
 	}
 
 	public function takeMoney(Player $player, float $value) : Generator{
-		//UNKNOW
-		return yield false;
+		try{
+			yield from $this->capital->takeMoney("", $player, $this->selector, (int) $value, new LabelSet([]));
+			//TODO: oracleName, LabelSet
+			return yield true;
+		} catch(CapitalException){
+			return yield false;
+		}
 	}
 }
