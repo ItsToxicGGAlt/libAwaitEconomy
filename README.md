@@ -1,5 +1,6 @@
 # libAwaitEconomy
 Economy library for plugin developer
+* WARNING: This library is still incomplete.
 
 # Usage
 ## Setup
