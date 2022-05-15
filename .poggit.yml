@@ -1,0 +1,12 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/NgLam2911/libAwaitEconomy
+build-by-default: true
+branches:
+- main
+projects:
+  libAwaitEconomy:
+    model: virion
+    type: library
+    libs:
+      - src: sof3/await-generator/await-generator
+        version: ^3.1.0
+...
