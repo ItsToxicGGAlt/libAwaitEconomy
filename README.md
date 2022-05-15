@@ -26,7 +26,7 @@ Await::f2c(function() use ($player){
 /** Player $player */
 /** float $amount */
 Await::f2c(function() use ($player, $amount){
-	$money = yield from AwaitEconomy::getEconomy()->setMoney($player, $amount); //Return bool (true if sucess, false if fail)
+	$result = yield from AwaitEconomy::getEconomy()->setMoney($player, $amount); //Return bool (true if sucess, false if fail)
 });
 ```
 ## AddMoney
@@ -34,7 +34,7 @@ Await::f2c(function() use ($player, $amount){
 /** Player $player */
 /** float $amount */
 Await::f2c(function() use ($player, $amount){
-	$money = yield from AwaitEconomy::getEconomy()->addMoney($player, $amount); //Return bool (true if sucess, false if fail)
+	$result = yield from AwaitEconomy::getEconomy()->addMoney($player, $amount); //Return bool (true if sucess, false if fail)
 });
 ```
 ## TakeMoney
@@ -42,7 +42,7 @@ Await::f2c(function() use ($player, $amount){
 /** Player $player */
 /** float $amount */
 Await::f2c(function() use ($player, $amount){
-	$money = yield from AwaitEconomy::getEconomy()->takeMoney($player, $amount); //Return bool (true if sucess, false if fail)
+	$result = yield from AwaitEconomy::getEconomy()->takeMoney($player, $amount); //Return bool (true if sucess, false if fail)
 });
 ```
 
