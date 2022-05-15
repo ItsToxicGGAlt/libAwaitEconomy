@@ -6,7 +6,7 @@ Economy library for plugin developer
 ## Setup
 ```php
 protected function onEnable() : void{
-	AwaitEconomy::init();
+	AwaitEconomy::init($this);
 }
 ```
 * Your plugin MUST have `capital-selector` in plugin config
